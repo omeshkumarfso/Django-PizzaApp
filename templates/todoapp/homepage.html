@@ -1,0 +1,23 @@
+{% extends 'todoapp/base.html' %}
+{% block content %}
+
+<form method="POST" action="/addtask/">
+    {% csrf_token %}
+    <input type="text" name="task" required>
+    <input type="submit" value="add" class="btn btn-success" name="">
+</form>
+{% for mytodo in mytodos %}
+<div style="border: 30px; margin-left: 30px;">
+    <p style="border-right-style: solid;
+              border-bottom-style: dotted;
+              border-left-style: solid; border-width: 1px;"
+    >
+        {{mytodo.task}}
+        <a href="/deletetask/{{mytodo.id}}/" class="btn btn-danger">Delete</a>
+        <a href="/updatetaskview/{{mytodo.id}}/" class="btn btn-warning">Edit</a>
+    </p>
+
+</div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'pizza/base.html' %}
+{% block content %}
+<div style="width:fit-content ;padding: 20px; display: block; margin:auto; margin-top: 200px;">
+    <h1>Admin Login</h1>
+</div>
+<div style="background-color:orange;width:400px; height: 200px; padding: 20px; display: block; margin:auto; margin-top: 10px;">
+
+    {% for message in messages %}
+    <h6 style="color:red">{{message}} </h6>
+    {% endfor %}
+    <form method="POST" action="/adminauthenticate/">
+        {% csrf_token %}
+        <input type="text" style="margin-bottom: 15px;" name="username" class="form-control" id="" placeholder="admin" required />
+        <input type="password" style="margin-bottom: 15px;" name="password" class="form-control" id="" placeholder="Pass: omeshkumar" required />
+        <input type="submit" style="display: block; margin:auto" class="btn btn-success" value="Login">
+    </form>
+</div>
+{% endblock %}
